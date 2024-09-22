@@ -41,6 +41,9 @@ const postSlice = createSlice({
       }
     );
   },
+  selectors: {
+    // Define selectors here
+  },
 });
 
 export const { selectAll: selectAllPosts, selectById: selectPostById } =

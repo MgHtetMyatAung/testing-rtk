@@ -1,6 +1,5 @@
 import { initialState, postsAdapter } from "../../redux/slices/extra/postSlice";
 import { baseApi } from "../config/baseApi";
-import { revalidate } from "../revalidate";
 
 export const postApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
