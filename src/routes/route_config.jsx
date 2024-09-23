@@ -1,6 +1,13 @@
 import { routeAccess } from "../constants/route_access";
 import { DefaultLayout } from "../layout";
-import { HomePage, LoginPage, PostPage, SettingPage, TodoPage } from "../pages";
+import {
+  HomePage,
+  LoginPage,
+  PostDetailPage,
+  PostPage,
+  SettingPage,
+  TodoPage,
+} from "../pages";
 
 export const RouteConfigs = [
   {
@@ -26,6 +33,15 @@ export const RouteConfigs = [
     element: (
       <DefaultLayout>
         <PostPage />
+      </DefaultLayout>
+    ),
+    access_type: routeAccess.public,
+  },
+  {
+    path: "/post/:id",
+    element: (
+      <DefaultLayout>
+        <PostDetailPage />
       </DefaultLayout>
     ),
     access_type: routeAccess.public,

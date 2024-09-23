@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 
 export default function Header() {
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
   return (
     <header className=" border-b">
       <nav className=" flex justify-between h-[70px] container mx-auto items-center">
         <Link to="/">Home</Link>
         <div>
-          {isAuthenticated ? (
+          {/* {isAuthenticated ? (
             <Link to="/setting" className=" border px-3 py-2">
               setting
             </Link>
@@ -16,7 +16,13 @@ export default function Header() {
             <Link to="/login" className=" border px-3 py-2">
               login
             </Link>
-          )}
+          )} */}
+          <Link to={"/todo"} className=" border px-3 py-2">
+            Todos
+          </Link>
+          <Link to={"/post"} className=" border px-3 py-2">
+            Posts
+          </Link>
         </div>
       </nav>
     </header>

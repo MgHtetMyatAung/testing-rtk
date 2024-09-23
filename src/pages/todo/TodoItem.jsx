@@ -13,6 +13,7 @@ const TodoItem = ({ id }) => {
       todo: data?.find((todo) => todo.id === id),
     }),
   });
+
   const [edit, { isError, isLoading }] = useEditTodoMutation();
 
   async function handleEdit() {
@@ -23,7 +24,7 @@ const TodoItem = ({ id }) => {
     }
   }
 
-  if (isLoading) return <div>Loading...</div>;
+  // if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
 
   console.log(todo, "todo");
@@ -31,7 +32,10 @@ const TodoItem = ({ id }) => {
   return (
     <div className=" p-4 bg-white shadow-md rounded-md border flex items-center justify-between">
       <p> {todo?.title}</p>
-      <Bolt className=" cursor-pointer" onClick={handleEdit} />
+      <Bolt
+        className={` cursor-pointer ${isLoading ? " animate-spin" : null}`}
+        onClick={handleEdit}
+      />
     </div>
   );
 };
