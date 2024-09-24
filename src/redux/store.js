@@ -8,6 +8,7 @@ import { PERSIST } from "redux-persist";
 import { persistConfig } from "./persist";
 import authReducer from "./slices/authSlice";
 import postReducer from "./slices/extra/postSlice";
+import addToCartReducer from "./slices/extra/addToCartSlice";
 import errorReducer, {
   // removeErrorInfo,
   setErrorInfo,
@@ -19,6 +20,7 @@ const reducers = {
   auth: authReducer,
   error: errorReducer,
   posts: postReducer,
+  carts: addToCartReducer,
   [baseApi.reducerPath]: baseApi.reducer,
 };
 
