@@ -1,6 +1,7 @@
 import { routeAccess } from "../constants/route_access";
 import { DefaultLayout } from "../layout";
 import {
+  CheckoutPage,
   HomePage,
   LoginPage,
   PostDetailPage,
@@ -42,6 +43,15 @@ export const RouteConfigs = [
     element: (
       <DefaultLayout>
         <PostDetailPage />
+      </DefaultLayout>
+    ),
+    access_type: routeAccess.public,
+  },
+  {
+    path: "/checkout",
+    element: (
+      <DefaultLayout>
+        <CheckoutPage />
       </DefaultLayout>
     ),
     access_type: routeAccess.public,

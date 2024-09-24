@@ -27,6 +27,9 @@ export default function Header() {
           <Link to={"/post"} className=" border px-3 py-2">
             Posts
           </Link>
+          <Link to={"/checkout"} className=" border px-3 py-2">
+            Checkout
+          </Link>
           <button className=" py-2 px-4 bg-gray-800 text-white">{count}</button>
         </div>
       </nav>
