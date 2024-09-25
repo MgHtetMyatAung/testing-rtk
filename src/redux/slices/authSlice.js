@@ -3,7 +3,7 @@ import { encryptToken } from "../../libs/crypto";
 
 const initialState = {
   accessToken: null,
-  //   refreshToken: null,
+  refreshToken: null,
   isAuthenticated: false,
 };
 
@@ -12,13 +12,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setTokens: (state, action) => {
-      const { accessToken } = action.payload;
+      const { accessToken, refreshToken } = action.payload;
       state.accessToken = encryptToken(accessToken);
+      state.refreshToken = encryptToken(refreshToken);
       state.isAuthenticated = !!accessToken;
     },
     systemLogout: (state) => {
       state.accessToken = null;
-      //   state.refreshToken = null;
+      state.refreshToken = null;
       state.isAuthenticated = false;
     },
   },

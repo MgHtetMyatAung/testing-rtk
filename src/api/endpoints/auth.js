@@ -5,13 +5,10 @@ import { revalidate } from "../revalidate";
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: ({ phone, password, type }) => ({
-        url: `/api/auth/token?type=${type}`,
-        method: "GET",
-        headers: {
-          login: phone,
-          password: password,
-        },
+      query: (body) => ({
+        url: `/auth/login`,
+        method: "POST",
+        body: JSON.stringify(body),
       }),
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
@@ -19,7 +16,8 @@ export const authApi = baseApi.injectEndpoints({
           // Assume API response returns accessToken and refreshToken
           dispatch(
             setTokens({
-              accessToken: data.access_token[0].token,
+              accessToken: data.accessToken,
+              refreshToken: data.refreshToken,
             })
           );
         } catch (err) {
